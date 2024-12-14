@@ -6,19 +6,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.pedemeia.domain.AccountAmount
+import com.example.pedemeia.utils.formatToCurrency
 
 @Composable
-fun CashVisor(modifier: Modifier = Modifier) {
+fun CashVisor(
+    modifier: Modifier = Modifier,
+    accountAmount: AccountAmount,
+) {
     Row(
         horizontalArrangement = spacedBy(8.dp),
     ) {
-        Text(
-            modifier = modifier,
-            text = "R$",
-        )
-        Text(
-            modifier = modifier,
-            text = "0,00",
-        )
+        with(accountAmount) {
+            Text(
+                modifier = modifier,
+                text = currency,
+                fontSize = 24.sp,
+            )
+            Text(
+                modifier = modifier,
+                text = value.formatToCurrency(),
+                fontSize = 24.sp,
+            )
+        }
     }
 }

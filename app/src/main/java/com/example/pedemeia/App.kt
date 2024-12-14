@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pedemeia.ui.navigation.Constants.ADD_TRANSACTION_ROUTE
 import com.example.pedemeia.ui.navigation.Constants.HOME_ROUTE
+import com.example.pedemeia.ui.screens.AddTransactionScreen
 import com.example.pedemeia.ui.screens.MainScreen
 
 @Composable
@@ -16,6 +18,9 @@ fun App() {
     ) {
         composable(route = HOME_ROUTE) {
             MainScreen(navController)
+        }
+        composable(route = ADD_TRANSACTION_ROUTE) {
+            AddTransactionScreen(navController)
         }
     }
 }
